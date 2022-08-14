@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3cbe38c3-76c2-4389-9c05-50b43d3c567b">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT ID_Lider, Nombre, Primer_Apellido, Ciudad_Residencia  FROM Lider ORDER BY Ciudad_Residencia ASC;]]>
+	</queryString>
+	<field name="ID_Lider" class="java.lang.Object"/>
+	<field name="Nombre" class="java.lang.Object"/>
+	<field name="Primer_Apellido" class="java.lang.Object"/>
+	<field name="Ciudad_Residencia" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="189" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="114" y="72" width="346" height="62" uuid="0bc842bd-e787-442c-b409-77433b951e23"/>
+				<textElement verticalAlignment="Middle">
+					<font size="40" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reportes de Líderes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="140" y="132" width="294" height="44" uuid="b8adb957-fcd2-4867-bd85-dfe114f5a417"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="15" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reporte de los líderes ordenados alfabéticamente por la ciudad de residencia]]></text>
+			</staticText>
+			<image>
+				<reportElement x="442" y="-15" width="141" height="119" uuid="d8b933f8-62f9-46e3-b2e8-69e82be0c5dd"/>
+				<imageExpression><![CDATA["E:\\02 DOCUMENTOS\\Documentos\\NetBeansProjects\\pruebareportes\\src\\img\\astronauta.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="-5" width="252" height="90" uuid="ca105d6c-2cf0-4eb4-978c-b11156019a46"/>
+				<imageExpression><![CDATA["E:\\02 DOCUMENTOS\\Documentos\\NetBeansProjects\\pruebareportes\\src\\img\\UTP-MISIONTIC2022 LOGO_1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="29a4f2a9-9ad8-49c6-ad88-d52f4fce68c6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="138" height="15" forecolor="#736343" uuid="8be8203e-aff0-426a-b5f6-d425a1626bac"/>
+				<text><![CDATA[ID_Lider]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="0" width="138" height="15" forecolor="#736343" uuid="47e94aa6-972c-478e-a80e-8e44c6b8a151"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="0" width="138" height="15" forecolor="#736343" uuid="dfb645bb-d309-42d8-bae6-14182c75fdc5"/>
+				<text><![CDATA[Primer_Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="0" width="138" height="15" forecolor="#736343" uuid="a4cd8763-fef5-407c-9e89-4d2875a6b250"/>
+				<text><![CDATA[Ciudad_Residencia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="0a4169bf-f0dd-42c7-8b38-1b6093147c18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="136bd5cc-2796-4f3a-b2f9-97e6f3072b15"/>
+					<textFieldExpression><![CDATA[""+$F{ID_Lider}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="138" y="0" width="138" height="15" uuid="bfe3a913-a9fe-464d-bec8-7a3df053fc22"/>
+					<textFieldExpression><![CDATA[""+$F{Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="276" y="0" width="138" height="15" uuid="bbb94ae2-498d-4414-b452-01004ef90c7f"/>
+					<textFieldExpression><![CDATA[""+$F{Primer_Apellido}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="414" y="0" width="138" height="15" uuid="481d3c40-be55-473c-8aad-8403a5e5fbde"/>
+					<textFieldExpression><![CDATA[""+$F{Ciudad_Residencia}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="19992b6b-8071-4957-aa34-f84e2422a22f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="a3c14604-1e55-4fdf-bc77-33117e89ec78"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="b1207a4f-b8c8-401a-bbe2-8ed07d92b8d7"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="f0c2d04d-204d-45e6-ba11-6cd628f1551b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="9c24a33d-6a0e-4ef6-ade8-49faac00bf03"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68cb9d7b-5879-4ba9-8245-61f7cc2ee4d1">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT c.ID_Compra, p.Constructora, p.Banco_Vinculado FROM Compra c INNER JOIN Proyecto p ON c.ID_Proyecto = p.ID_Proyecto WHERE c.Proveedor = 'Homecenter' AND p.Ciudad = 'Salento';]]>
+	</queryString>
+	<field name="ID_Compra" class="java.lang.Object"/>
+	<field name="Constructora" class="java.lang.Object"/>
+	<field name="Banco_Vinculado" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="191" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="97" y="70" width="380" height="62" uuid="072d626b-9738-4b2d-a476-146a97b1676d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="40" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reportes de Compras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="151" y="132" width="273" height="36" uuid="ee2b55aa-017f-471d-9efe-cabad8a2e78a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="15" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reportes de las compras realizadas  por los proyectos con el proveedor Homecenter]]></text>
+			</staticText>
+			<image>
+				<reportElement x="442" y="-14" width="141" height="119" uuid="00f5fd2a-bbb7-457f-b936-b116518d60c8"/>
+				<imageExpression><![CDATA["E:\\02 DOCUMENTOS\\Documentos\\NetBeansProjects\\pruebareportes\\src\\img\\astronauta.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="-4" width="252" height="90" uuid="89c63b4a-b0ee-43c5-80d5-10098c39c262"/>
+				<imageExpression><![CDATA["E:\\02 DOCUMENTOS\\Documentos\\NetBeansProjects\\pruebareportes\\src\\img\\UTP-MISIONTIC2022 LOGO_1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="29119dc0-077c-4a46-a78a-ffea181b0ab2"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="136" height="15" forecolor="#736343" uuid="68fca505-ce19-4546-bdba-3d73b7f63ce5"/>
+				<text><![CDATA[ID_Compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="151" y="0" width="219" height="15" forecolor="#736343" uuid="54d79c52-edfc-4225-81a9-620a83b6a373"/>
+				<text><![CDATA[Constructora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="354" y="0" width="185" height="15" forecolor="#736343" uuid="a9eb164c-532e-42cf-92f2-d36cc8138813"/>
+				<text><![CDATA[Banco_Vinculado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="5a177ae1-e643-4d63-a36f-6dc7b56ae31a"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="136" height="15" uuid="1a5a4879-7440-4754-887f-43cee4dce921"/>
+					<textFieldExpression><![CDATA[""+$F{ID_Compra}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="354" y="0" width="185" height="15" uuid="6c797c22-9f6b-4405-854b-3dd69bc8e1ad"/>
+					<textFieldExpression><![CDATA[""+$F{Banco_Vinculado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="151" y="0" width="185" height="15" uuid="a85b7bfa-b9a8-4a53-9827-f87ebe7dcc92"/>
+					<textFieldExpression><![CDATA[""+$F{Constructora}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f5412e5c-eb04-49d9-9680-7fa63f4dd3c5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="2c31de8e-01cc-4d1f-a505-0a39f61924e0"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="261e0669-4bc5-420a-8d00-17af3d9f174d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="860442ca-9ec4-44ef-90ce-d325233ccca0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="775ba6c5-bc38-4391-93ec-dad8a9c80d36"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
